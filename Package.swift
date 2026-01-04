@@ -21,7 +21,8 @@ let package = Package(
             dependencies: [
                 .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
             ],
-            path: "HabitTracker"
+            path: "HabitTracker",
+            exclude: ["Tests"]
         ),
         .testTarget(
             name: "HabitTrackerTests",
