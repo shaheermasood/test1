@@ -156,6 +156,19 @@ public struct UserSettings: Codable, Equatable, Sendable {
         try container.encode(tone, forKey: .tone)
         try container.encode(locationEnabled, forKey: .locationEnabled)
     }
+
+    // MARK: - Equatable
+
+    public static func == (lhs: UserSettings, rhs: UserSettings) -> Bool {
+        return lhs.resetHourMinute.hour == rhs.resetHourMinute.hour &&
+            lhs.resetHourMinute.minute == rhs.resetHourMinute.minute &&
+            lhs.notificationCapPerDay == rhs.notificationCapPerDay &&
+            lhs.notificationCooldownMinutes == rhs.notificationCooldownMinutes &&
+            lhs.phaseMode == rhs.phaseMode &&
+            lhs.manualPhaseOverrides == rhs.manualPhaseOverrides &&
+            lhs.tone == rhs.tone &&
+            lhs.locationEnabled == rhs.locationEnabled
+    }
 }
 
 // MARK: - Notification Tone
